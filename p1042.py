@@ -1,0 +1,10 @@
+a,b,c=input().split()
+tupla=[int(a),int(b),int(c)]
+tupla.sort()
+print(tupla[0])
+print(tupla[1])
+print(tupla[2])
+print()
+print(a)
+print(b)
+print(c)
