@@ -5,8 +5,7 @@ try:
             i = input()
             if i == '0': break
             elif i == '1': continue
-            p=input().split()
-            if 1<= (int)p[1] <=999: l.append(p[0]+p[1])
+            l.append(i)
         l.sort()
         for n in l: print(n)
         print()

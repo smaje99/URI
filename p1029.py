@@ -1,12 +1,16 @@
+def fib(n):
+    f = [0] * (n + 1)
+    cl = [0] * (n + 1)
+    f[1] = 1
+    cl[1] = 0
+    for i in range(2, n + 1):
+        f[i] = f[i - 1] + f[i - 2]
+        cl[i] = cl[i - 1] + cl[i - 2] + 2
+    return cl[n], f[n]
 
 
-def chamadas(x):
-    if x > 1:
-        return x ** 2 - 3 * x + 4
-
-
-n = int(input())
-for i in range(n):
-    x = int(input())
-    if 1 <= x <= 39:
-        print("fib({}) = {} calls = {}".format(x, chamadas(x), ))
+T = int(input())
+for _ in range(T):
+    n = int(input())
+    c, r = fib(n)
+    print("fib(%d) = %d calls = %d" % (n, c, r))
