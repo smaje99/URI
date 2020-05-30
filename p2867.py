@@ -1,7 +1,7 @@
-c=int(input())
-for i in range(c):
-    m,n=input().split()
-    m=int(m)
-    n=int(n)
-    if 1<=n<=100 and 1<=m<=100:
-        print(len(str(m**n)))
+from math import log10
+
+
+for i in range(int(input())):
+    n , m = map(int, input().split())
+    if 1 <= n <= 100 and 1 <= m <= 100:
+        print(int(log10(n ** m)) + 1)
