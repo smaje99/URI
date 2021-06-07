@@ -1,46 +1,52 @@
-def priority_expression(n):
-    if n == '^':
-        return 4
-    elif n in ('*', '/'):
-        return 2
-    elif n in ('+', '-'):
-        return 1
-    else:
-        return 5
+priority_expression = {'+': 1,
+                       '-': 1,
+                       '*': 2,
+                       '/': 2,
+                       '^': 4}
+
+priority_stack = {'+': 1,
+                  '-': 1,
+                  '*': 2,
+                  '/': 2,
+                  '^': 3}
 
 
-def priority_stack(n):
-    if n == '^':
-        return 3
-    elif n in ('*', '/'):
-        return 2
-    elif n in ('+', '-'):
-        return 1
-    else:
-        return 0
+def remove_brackets(stack):
+    while stack:
+        expression = stack.pop()
+        if expression != '(':
+            yield expression
+        else:
+            break
 
 
 def postfixed(infix):
     _postfixed = []
     _stack = []
-    while infix:
-        n = infix.pop()
-        if n.isalnum():
-            _postfixed.append(n)
+    p_expression = None
+    p_stack = None
+    for element in infix:
+        if not element.isalnum() and _stack:
+            p_expression = priority_expression.get(element, 5)
+            p_stack = priority_stack.get(_stack[-1], 0)
+
+        if element.isalnum():
+            _postfixed.append(element)
         elif not _stack:
-            _stack.append(n)
-        elif n == ')' and _stack:
-            while _stack:
-                n = _stack.pop()
-                if n != '(':
-                    _postfixed.append(n)
-                else:
-                    break
-        elif priority_expression(n) <= priority_stack(_stack[-1]):
+            _stack.append(element)
+        elif element == ')' and _stack:
+            _postfixed.extend(remove_brackets(_stack))
+        elif p_expression == p_stack:
             _postfixed.append(_stack.pop())
-            _stack.append(n)
+            _stack.append(element)
+        elif p_expression < p_stack:
+            _postfixed.extend(_stack[::-1])
+            _stack.clear()
+            while '(' in _postfixed:
+                _postfixed.remove('(')
+            _stack.append(element)
         else:
-            _stack.append(n)
+            _stack.append(element)
     while _stack:
         _postfixed.append(_stack.pop())
     return _postfixed
@@ -54,8 +60,8 @@ if __name__ == '__main__':
     '''
     n = int(input())
     if 0 < n < 1000:
-        ecuations = []
+        equations = []
         for _ in range(n):
-            ecuations.append(input())
-        for ecuation in ecuations:
-            print(''.join(postfixed(list(ecuation)[::-1])))
+            equations.append(input())
+        for equation in equations:
+            print(''.join(postfixed(equation)))
