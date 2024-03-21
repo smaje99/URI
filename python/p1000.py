@@ -3,4 +3,7 @@
 See: https://judge.beecrowd.com/es/problems/view/1000
 '''
 
-print('Hello World!')
+
+def main():
+    '''Main function.'''
+    print('Hello World!')
