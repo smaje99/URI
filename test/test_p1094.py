@@ -1,4 +1,4 @@
-"""Test for Beecrowd exercise 1040."""
+"""Test for Beecrowd exercise 1094."""
 
 from io import StringIO
 import sys
