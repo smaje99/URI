@@ -1,9 +1,12 @@
-A,B,C=input().split()
-A=float(A)
-B=float(B)
-C=float(C)
-print("TRIANGULO:","{:0.3f}".format((A*C)/2))
-print("CIRUCLO:","{:0.3f}".format((C**2)*3.14159))
-print("TRAPEZIO:","{:0.3f}".format((((A+B)/2)*C)))
-print("QUADRADO:","{:0.3f}".format((B**2)))
-print("RETANGULO:","{:0.3f}".format((A*B)))
+'''Beecrowd exercise 1012.
+
+See: https://judge.beecrowd.com/es/problems/view/1012
+'''
+
+A, B, C = map(float, input().split())
+
+print(f"TRIANGULO: {(A * C) / 2:.3f}")
+print(f"CIRUCLO: {(C**2) * 3.14159:.3f}")
+print(f"TRAPEZIO: {(((A + B) / 2) * C):.3f}")
+print(f"QUADRADO: {(B**2):.3f}")
+print(f"RETANGULO: {(A * B):.3f}")
