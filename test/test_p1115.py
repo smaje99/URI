@@ -6,7 +6,7 @@ import sys
 import pytest
 from pytest import MonkeyPatch, CaptureFixture
 
-from python.bee1115 import main as bee1115
+from python.p1115 import main as bee1115
 
 
 @pytest.mark.parametrize(
