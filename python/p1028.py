@@ -1,13 +1,21 @@
-def gcd(a, b):
+"""Beecrowd exercise 1028.
+
+See: https://judge.beecrowd.com/es/problems/view/1028
+"""
+
+
+def gcd(num1: int, num2: int) -> int:
+    """Máximo común divisor."""
     x, y = 0, 1
     lx, ly = 1, 0
-    while b:
-        q = a // b
-        a, b = b, a % b
+
+    while num2:
+        q = num1 // num2
+        num1, num2 = num2, num1 % num2
         x, lx = lx - q * x, x
         y, ly = ly - q * y, y
 
-    return a
+    return num1
 
 
 T = int(input())
