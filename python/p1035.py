@@ -1,6 +1,12 @@
-A,B,C,D=input().split()
-A=int(A)
-B=int(B)
-C=int(C)
-D=int(D)
-print("Valores aceitos" if B>C and D>A and C+D>A+B and C>0 and D>0 and A%2==0 else "Valores nao aceitos")
+"""Beecrowd exercise 1035.
+
+See: https://judge.beecrowd.com/es/problems/view/1035
+"""
+
+A, B, C, D = map(int, input().split())
+
+print(
+    "Valores aceitos"
+    if B > C > 0 and D > A >= 0 and C + D > A + B and A % 2 == 0
+    else "Valores nao aceitos"
+)
