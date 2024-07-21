@@ -1,17 +1,40 @@
-def josephus(ls, skip):
-    skip -= 1
-    idx = skip
-    while len(ls) > 1:
-        ls.pop(idx)
-        idx = (idx + skip) % len(ls)
-    return ls[0]
+"""Beecrowd exercise 1030.
 
-nc=int(input())
-if 1<=nc<=30:
-    l=[]
-    for i in range(1,nc+1):
-        n,k=input().split()
-        if 1<=int(n)<=10000 and 1<=int(k)<=1000:
-            l.append("Case "+str(i)+": "+str(josephus(list(range(1,int(n)+1)),int(k))))
-    for i in l:
-        print(i)
+See: https://judge.beecrowd.com/es/problems/view/1030
+"""
+
+
+def main():
+    """Main function.
+    Josephus Problem.
+    """
+    nc = int(input())
+
+    if 1 <= nc <= 30:
+        for i in range(1, nc + 1):
+            n, k = map(int, input().split())
+
+            if not 1 <= n <= 10_000 or not 1 <= k <= 1_000:
+                continue
+
+            """ # Josephus Problem - Method 1
+            people = list(range(1, n + 1))
+            index = 0
+
+            while len(people) > 1:
+                index = (index + k - 1) % len(people)
+                people.pop(index)
+
+            print(f"Case {i}: {people[0]}") """
+
+            # Josephus Problem - Method 2
+            survivor = 0
+
+            for j in range(2, n + 1):
+                survivor = (survivor + k) % j
+
+            print(f"Case {i}: {survivor + 1}")
+
+
+if __name__ == "__main__":
+    main()
