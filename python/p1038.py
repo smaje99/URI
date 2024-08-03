@@ -1,11 +1,16 @@
-x,y=input().split()
-if x=="1":
-    print("Total: R$ {:0.2f}".format(4*int(y)))
-elif x=="2":
-    print("Total: R$ {:0.2f}".format(4.5*int(y)))
-elif x=="3":
-    print("Total: R$ {:0.2f}".format(5*int(y)))
-elif x=="4":
-    print("Total: R$ {:0.2f}".format(2*int(y)))
-elif x=="5":
-    print("Total: R$ {:0.2f}".format(1.5*int(y)))
+"""Beecrowd exercise 1038.
+
+See: https://judge.beecrowd.com/es/problems/view/1038
+"""
+
+x, y = map(int, input().split())
+
+values: dict[int, int | float] = {
+    1: 4,
+    2: 4.5,
+    3: 5,
+    4: 2,
+    5: 1.5,
+}
+
+print(f"Total: R$ {values[x] * y:0.2f}")
