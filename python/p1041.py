@@ -1,17 +1,24 @@
-x,y=input().split()
-x=float(x)
-y=float(y)
-if x==y==0:
-    print("Origem")
-elif x==0:
-    print("Eixo Y")
-elif y==0:
-    print("Eixo X")
-elif x>0 and y>0:
-    print("Q1")
-elif x<0 and y>0:
-    print("Q2")
-elif x<0 and y<0:
-    print("Q3")
-elif x>0 and y<0:
-    print("Q4")
+"""Beecrowd exercise 1041.
+
+See: https://judge.beecrowd.com/es/problems/view/1041
+"""
+
+x, y = map(float, input().split())
+
+match (x, y):
+    case (0, 0):
+        print("Origem")
+    case (0, _):
+        print("Eixo Y")
+    case (_, 0):
+        print("Eixo X")
+    case (x, y) if x > 0 and y > 0:
+        print("Q1")
+    case (x, y) if x < 0 and y > 0:
+        print("Q2")
+    case (x, y) if x < 0 and y < 0:
+        print("Q3")
+    case (x, y) if x > 0 and y < 0:
+        print("Q4")
+    case _:
+        print()
