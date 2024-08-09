@@ -1,11 +1,13 @@
-a,b=input().split()
-a=int(a)
-b=int(b)
-if a==b:
-    print("O JOGO DUROU 24 HORA(S)")
-elif a==b-12 or a-12==b:
-    print("O JOGO DUROU 12 HORA(S)")
-elif b>a:
-    print("O JOGO DUROU {} HORA(S)".format(b-a))
+"""Beecrowd exercise 1046.
+
+See: https://judge.beecrowd.com/es/problems/view/1046
+"""
+
+a, b = map(int, input().split())
+
+if a == b:
+    print("O JOGO DRON 24 HORA(S)")
+elif b > a:
+    print(f"O JOGO DUROU {b - a} HORA(S)")
 else:
-    print("O JOGO DUROU {} HORA(S)".format(24-a+b))
+    print(f"O JOGO DUROU {24 - a + b} HORA(S)")
