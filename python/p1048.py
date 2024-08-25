@@ -1,21 +1,24 @@
-s=float(input())
-if 0.0<=s<=400.00:
-    print("Novo salario: {:0.2f}".format(s+(s*0.15)))
-    print("Reajuste ganho: {:0.2f}".format(s*0.15))
-    print("Em percentual: 15 %")
-elif 400.01<=s<=800.0:
-    print("Novo salario: {:0.2f}".format(s+(s*0.12)))
-    print("Reajuste ganho: {:0.2f}".format(s*0.12))
-    print("Em percentual: 12 %")
-elif 800.01<=s<=1200.0:
-    print("Novo salario: {:0.2f}".format(s+(s*0.1)))
-    print("Reajuste ganho: {:0.2f}".format(s*0.1))
-    print("Em percentual: 10 %")
-elif 1200.01<=s<=2000.0:
-    print("Novo salario: {:0.2f}".format(s+(s*0.07)))
-    print("Reajuste ganho: {:0.2f}".format(s*0.07))
-    print("Em percentual: 7 %")
+"""Beecrowd exercise 1048.
+
+See: https://judge.beecrowd.com/es/problems/view/1048
+"""
+
+s = float(input())
+
+if 0.0 <= s <= 400.00:
+    percentual = 15
+elif 400.01 <= s <= 800.00:
+    percentual = 12
+elif 800.01 <= s <= 1200.00:
+    percentual = 10
+elif 1200.01 <= s <= 2000.00:
+    percentual = 7
 else:
-    print("Novo salario: {:0.2f}".format(s+(s*0.04)))
-    print("Reajuste ganho: {:0.2f}".format(s*0.04))
-    print("Em percentual: 4 %")
+    percentual = 4
+
+reajuste = s * (percentual / 100)
+novo_salario = s + reajuste
+
+print(f"Novo salario: {novo_salario:.2f}")
+print(f"Reajuste ganho: {reajuste:.2f}")
+print(f"Em percentual: {percentual} %")
