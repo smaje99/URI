@@ -1,12 +1,9 @@
-a=float(input())
-b=float(input())
-c=float(input())
-d=float(input())
-e=float(input())
-f=float(input())
-i=0
-l=[a,b,c,d,e,f]
-for a in l:
-    if a>=0:
-        i+=1
-print(i,"valores positivos")
+"""Beecrowd exercise 1060.
+
+See: https://judge.beecrowd.com/es/problems/view/1060
+"""
+
+
+nums = [float(input()) for _ in range(6)]
+positives = sum(n >= 0 for n in nums)
+print(f"{positives} valores positivos")
