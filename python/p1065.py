@@ -1,11 +1,14 @@
-a=int(input())
-b=int(input())
-c=int(input())
-d=int(input())
-e=int(input())
-l=[a,b,c,d,e]
-n=0
-for i in l:
-    if i%2==0:
-        n+=1
-print(n,"valores pares")
+"""Beecrowd exercise 1065.
+
+See: https://judge.beecrowd.com/es/problems/view/1065
+"""
+
+
+# Reading input values in a more concise way
+values = [int(input()) for _ in range(5)]
+
+# Counting the even numbers using list comprehension
+even_count = sum(value % 2 == 0 for value in values)
+
+# Printing the result
+print(f"{even_count} valores pares")
