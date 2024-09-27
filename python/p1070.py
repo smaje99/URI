@@ -1,5 +1,11 @@
+"""Beecrowd exercise 1070.
+
+See: https://judge.beecrowd.com/es/problems/view/1070
+"""
+
 xn = int(input())
-if xn % 2 == 0:
-    xn += 1
-for i in range(6):
-    print(i * 2 + xn)
+
+start = xn + 1 if xn % 2 == 0 else xn
+
+for i in range(start, start + 12, 2):
+    print(i)
