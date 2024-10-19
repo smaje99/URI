@@ -1,41 +1,40 @@
-priority = {'+': 1, '-': 1,
-            '*': 2, '/': 2,
-            '^': 3}
+"""Beecrowd exercise 1077.
+
+See: https://judge.beecrowd.com/es/problems/view/1077
+"""
+
+priority: dict[str, int] = {"+": 1, "-": 1, "*": 2, "/": 2, "^": 3}
 
 
-def remove_brackets(stack):
-    n = ''
-    while stack:
-        expression = stack.pop()
-        if expression != '(':
-            n += expression
-        else:
-            return n
+def remove_brackets(stack: list[str]) -> str:
+    parts: list[str] = []
+
+    while stack and stack[-1] != "(":
+        parts.append(stack.pop())
+
+    return "".join(parts[::-1])
 
 
-def postfixed(infix):
-    _postfixed = ''
-    _stack = []
+def postfixed(infix: str) -> str:
+    _postfixed: list[str] = []
+    _stack: list[str] = []
     for element in infix:
         if element.isalnum():
-            _postfixed += element
-        elif element in '+-*/^':
-            priority_element = priority.get(element)
-            while _stack and priority_element <= priority.get(_stack[-1], 0):
-                _postfixed += _stack.pop()
+            _postfixed.append(element)
+        elif element in priority:
+            while _stack and priority[element] <= priority.get(_stack[-1], 0):
+                _postfixed.append(_stack.pop())
             _stack.append(element)
-        elif element == ')':
-            _postfixed += remove_brackets(_stack)
+        elif element == ")":
+            _postfixed.append(remove_brackets(_stack))
         else:
             _stack.append(element)
-    return _postfixed + ''.join(_stack[::-1])
+    return "".join(_postfixed + _stack[::-1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     n = int(input())
     if n > 0:
-        equations = []
         for _ in range(n):
-            equations.append(input())
-        for equation in equations:
+            equation = input()
             print(postfixed(equation))
