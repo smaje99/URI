@@ -1,8 +1,16 @@
-n=int(input())
-l=[]
-while n!=0:
-    a,b,c=input().split()
-    l.append(((float(a)*2)/10)+((float(b)*3)/10)+((float(c)*5)/10))
-    n-=1
-for i in l:
-    print("{:0.1f}".format(i))
+"""Beecrowd exercise 1079.
+
+See: https://judge.beecrowd.com/es/problems/view/1079
+"""
+
+n = int(input())
+resultados: list[float] = []
+
+for _ in range(n):
+    a, b, c = map(float, input().split())
+
+    promedio_ponderado = (a * 2 + b * 3 + c * 5) / 10
+    resultados.append(promedio_ponderado)
+
+for resultado in resultados:
+    print(f"{resultado:.1f}")
