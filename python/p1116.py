@@ -1,9 +1,15 @@
+"""Beecrowd exercise 1116.
+Repetition
+
+See: https://judge.beecrowd.com/es/problems/view/1116
+"""
+
 n = int(input())
-for i in range(n):
-    a, b = input().split()
-    a = float(a)
-    b = float(b)
+
+for _ in range(n):
+    a, b = map(float, input().split())
+
     if b == 0:
         print("divisao impossivel")
     else:
-        print("{:0.1f}".format(a / b))
+        print(f"{a / b:0.1f}")
