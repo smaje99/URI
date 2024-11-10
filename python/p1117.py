@@ -1,17 +1,20 @@
-a=True
-l=[]
-c=0
-while a:
-    b=float(input())
-    if b>=0 and b<=10:
-        l.append(b)
+"""Beecrowd exercise 1117.
+Repetition
+
+See: https://judge.beecrowd.com/es/problems/view/1117
+"""
+
+valid_scores: list[float] = []
+invalid_count = 0
+
+while len(valid_scores) < 2:
+    score = float(input())
+
+    if 0 <= score <= 10:
+        valid_scores.append(score)
     else:
-        c+=1
-    if len(l)==2:
-        a=False
-n=0
-for i in range(c):
-    print("nota invalida")
-for i in l:
-   n+=i
-print("media = {0:.2f}".format(n/len(l)))
+        print("nota invalida")
+        invalid_count += 1
+
+average = sum(valid_scores) / len(valid_scores)
+print(f"media = {average:.2f}")
