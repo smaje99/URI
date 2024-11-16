@@ -1,7 +1,17 @@
+"""Beecrowd exercise 1120.
+String
+
+See: https://judge.beecrowd.com/es/problems/view/1120
+"""
+
 while True:
-    d, n = map(int, input().split())
-    if d == n == 0:
+    try:
+        d, n = input().split()
+
+        if d == "0" and n == "0":
+            break
+
+        result = int(n.replace(d, "") or 0)
+        print(result)
+    except EOFError:
         break
-    else:
-        m = str(n).replace(str(d), '')
-        print(int(m) if len(m) != 0 else 0)
