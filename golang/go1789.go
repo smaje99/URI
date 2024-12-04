@@ -1,7 +1,7 @@
 /*
 Beecrowd exercise 1789.
 The Race of Slugs.
-Repetition
+Beginner
 https://www.urionlinejudge.com.br/judge/problems/view/1789
 */
 
