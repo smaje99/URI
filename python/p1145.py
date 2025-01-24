@@ -1,14 +1,17 @@
-x,y=input().split()
-x=int(x)
-y=int(y)
-a=1
-if x<y:
-    while a<=y:
-        i=0
-        for j in range(x):
-            if a<=y:
-                if j==x-1:
-                    print(a)
-                else:
-                    print(a,"",end="")
-            a+=1
+"""Beecrowd exercise 1145.
+Logical Sequence 2.
+Repetition.
+
+See: https://judge.beecrowd.com/es/problems/view/1145
+"""
+
+
+def main():
+    """Main function."""
+    x, y = map(int, input().split())
+    for i in range(1, y + 1):
+        print(i, end="\n" if i % x == 0 else " ")
+
+
+if __name__ == "__main__":
+    main()
