@@ -9,7 +9,7 @@ def main():
     n = int(input())
 
     for _ in range(n):
-        x, y = map(int, input().split())
+        x, y = map(lambda v: int(v), input().split())
 
         odds = range(x + 1 if x % 2 == 0 else x, x + 2 * y, 2)
         print(sum(odds))
