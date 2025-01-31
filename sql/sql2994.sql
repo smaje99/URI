@@ -11,7 +11,7 @@ select
 from
   attendances a
   inner join doctors d on a.id_doctor = d.id
-  inner join work_shift ws on a.id_work_shift = ws.id
+  inner join work_shifts ws on a.id_work_shift = ws.id
 group by
   d.id,
   d.name
