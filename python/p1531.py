@@ -7,6 +7,7 @@ See: https://judge.beecrowd.com/es/problems/view/1531
 """
 
 
+import os
 import sys
 
 
@@ -148,3 +149,38 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+def fib_fast_doubling(n: int, mod: int) -> int:
+    def _fib(n: int) -> tuple[int, int]:
+        if n == 0:
+            return (0, 1)
+        a, b = _fib(n >> 1)
+        c = (a * ((2 * b - a) % mod)) % mod
+        d = (a * a + b * b) % mod
+        return (d, (c + d) % mod) if n & 1 else (c, d)
+    return _fib(n)[0]
+
+
+def main_bytes():
+    # Leer todo el input
+    data = os.read(0, 1 << 20).split()
+    out = []
+
+    i = 0
+    while i < len(data):
+        N = int(data[i])
+        M = int(data[i+1])
+        i += 2
+
+        if M == 1:
+            out.append(b'0')
+            continue
+
+        pi = pisano_period(M)
+        fib_n_mod_pi = fib_fast_doubling(N, pi)
+        res = fib_fast_doubling(fib_n_mod_pi, M)
+        out.append(str(res).encode())
+
+    # Escribir todo el output
+    os.write(1, b'\n'.join(out) + b'\n')
